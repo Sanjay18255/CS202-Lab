@@ -1,5 +1,7 @@
-def isLeapYear(year):
-    if(year % 400 == 0):
+"""Leap Year Checker Program."""
+def is_leap_year(year):
+    """Return True if the year is a leap year, else False."""
+    if year % 400 == 0:
         return True
     if year % 100 == 0:
         return False
@@ -8,33 +10,42 @@ def isLeapYear(year):
     return False
 
 
-def CheckSingleYear():
+def check_single_year():
+    """Check if a single year is a leap year."""
     year = int(input("Enter a year to check: "))
-    if isLeapYear(year):
+    if is_leap_year(year):
         print(f"{year} is a Leap Year")
     else:
         print(f"{year} is NOT a Leap Year")
 
 
-def checkRange():
+def check_range():
+    """Check all leap years in a given range."""
     start = int(input("Enter the starting year: "))
     end = int(input("Enter the ending year: "))
-    print("Leap years between", start, "and", end, ":")
-    for yr in range(start, end+1):
-        if isLeapYear(yr):
-            print(yr, end=" ")
+    print(f"\nLeap years between {start} and {end}:")
+    for year in range(start, end + 1):
+        if is_leap_year(year):
+            print(year, end=" ")
+    print()
 
 
-print("Leap Year Checker")
-print("------------------")
-print("1. Check a single year")
-print("2. List leap years in a range")
+def main():
+    """Driver function for Leap Year Checker."""
+    print("Leap Year Checker")
+    print("------------------")
+    print("1. Check a single year")
+    print("2. List leap years in a range")
 
-choice = int(input("Enter your choice (1 or 2): "))
+    choice = int(input("Enter your choice (1 or 2): "))
 
-if choice == 1:
-    CheckSingleYear()
-elif choice == 2:
-    checkRange()
-else:
-    print("Invalid choice. Please restart the program.")
+    if choice == 1:
+        check_single_year()
+    elif choice == 2:
+        check_range()
+    else:
+        print("Invalid choice. Please restart the program.")
+
+
+if __name__ == "__main__":
+    main()
